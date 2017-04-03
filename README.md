@@ -2,7 +2,7 @@
 
 ### Background
 
-Simple Search is an application that will allow users to search for an item they are interested in buying.  The goal of the applications is to combine all items for sale from Ebay, Amazon, and Craigslist to make it easier for the user to find the best item suited for their particular interest.  Simple Search will also include tracking items to account for the user choice of not wanting to purchase at that certain time.
+Simple Search is an application that will allow users to search for an item they are interested in buying.  The goal of the applications is to combine all items for sale from Ebay, Amazon, and Craigslist to make it easier for the user to find the best item suited for their particular interest.  Simple Search will also include tracking items to account for the user choice of not wanting to purchase at that time.
 
 ### Functionality & MVP
 
