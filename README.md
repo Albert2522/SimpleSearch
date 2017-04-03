@@ -19,7 +19,9 @@ With this version, users will be able to:
 
 ### Wireframes
 
-![wireframes](images/flex-settings.png)
+![wireframes](https://raw.githubusercontent.com/Albert2522/SimpleSearch/master/wireframes/Tree%20Structure.png)
+![wireframes](https://raw.githubusercontent.com/Albert2522/SimpleSearch/master/wireframes/Simple%20Main%20Screen.png)
+![wireframes](https://raw.githubusercontent.com/Albert2522/SimpleSearch/master/wireframes/Single%20Item%20Screen.png)
 
 ### Technologies & Technical Challenges
 
@@ -80,7 +82,6 @@ Explore APIs and make necessary installations.
 - Harrison: General structure and design of the page.
 
 
-### Plan for getting users and reviews
-- Both Munyo and Ryan will each share with at least 20 friends and family and ask for good reviews
-- Munyo will find an appropriate subreddit and make a post there to show off the chrome extension
-- Ryan will reach out to http://www.colourblindawareness.org/ to share the chrome extension
+Bonus features:
+- Post advertise on all platforms using this app.
+- Connect more platforms APIs to the app.
