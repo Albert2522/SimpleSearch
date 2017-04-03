@@ -16,6 +16,7 @@ With this version, users will be able to:
 - [ ] For each found item see detailed information, including all photos,
         description and link to watch it on original site
 - [ ] Add this Item to "Track Items" and get a notification if the new item will be listed on these platforms
+- [ ] Advertise application to spread the word and get user traffic.
 
 ### Wireframes
 
@@ -64,12 +65,12 @@ Explore APIs and make necessary installations.
 
 
 **Day 2**: Work on the general structure, Home and Search Result components:
-- Albert: general structure, home component
+- Albert: Implement a redux structure, work on home component.  
 - Harrison: search-result component, helping with the home component.
 
 **Day 3**: Complete API's requests util and connect it with components. Work on design already built components.
-- Albert: implement API's requests
-- Harrison: design of components
+- Albert: Implement API's requests for searching specific items.  
+- Harrison: Designing of home and search components.
 
 **Day 4**: Complete filter and sort features in back-end, make them workable in app. Implement Item and Track Item components.
  Set up notifications for new listed Items.
@@ -79,9 +80,10 @@ Explore APIs and make necessary installations.
 
 **Day 5**: Create demo page for the project.
 - Albert: Implement ios-emulator on a web-page.
-- Harrison: General structure and design of the page.
+- Harrison: Design ios emulator walkthrough for user when using application.
+- Both: Market application to X amount of people to increase traffic flow. 
 
 
 Bonus features:
-- Post advertise on all platforms using this app.
+- Post sale listings on all platforms using this app.
 - Connect more platforms APIs to the app.
