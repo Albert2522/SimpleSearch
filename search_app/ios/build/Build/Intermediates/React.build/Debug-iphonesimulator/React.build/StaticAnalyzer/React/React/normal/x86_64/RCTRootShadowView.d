@@ -1,0 +1,17 @@
+dependencies: \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/node_modules/react-native/React/Views/RCTRootShadowView.m \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/node_modules/react-native/React/Modules/RCTI18nUtil.h \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/node_modules/react-native/React/Views/RCTRootShadowView.h \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/node_modules/react-native/React/Views/RCTShadowView.h \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/node_modules/react-native/React/Views/RCTComponent.h \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/node_modules/react-native/React/Base/RCTRootView.h \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/albertabdrashitov/Desktop/simple_search/search_app/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h
