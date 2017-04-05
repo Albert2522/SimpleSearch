@@ -18,7 +18,7 @@ export default class LaunchScreen extends React.Component {
         <ScrollView style={styles.container}>
           <View style={styles.section}>
             <TouchableOpacity style={stylesbtn.button} onPress={Actions.search}>
-              <Text style={stylesbtn.buttonText}>Search Component</Text>
+              <Text style={stylesbtn.buttonText}>Search for Something</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.section} >

@@ -8,7 +8,7 @@ export default StyleSheet.create({
     borderBottomColor: Colors.bloodOrange,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    backgroundColor: Colors.ember
+    backgroundColor: Colors.coal
   },
   buttonText: {
     margin: 18,

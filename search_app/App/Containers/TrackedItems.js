@@ -9,6 +9,7 @@ import Row from './Row'
 import SectionHeader from './SectionHeader'
 import demoData from './data'
 import Header from './Header'
+import SearchBar from 'react-native-material-design-searchbar'
 
 const styles1 = StyleSheet.create({
   container: {
@@ -101,13 +102,23 @@ export default class TrackedItems extends React.Component {
           <Text style={styles.buttonText}>Back</Text>
         </TouchableOpacity>
 
+        <SearchBar
+          onSearchChange={() => console.log('On Focus')}
+          height={25}
+          onFocus={() => console.log('On Focus')}
+          onBlur={() => console.log('On Blur')}
+          placeholder={'Find what you are looking for!'}
+          autoCorrect={false}
+          padding={5}
+          returnKeyType={'search'}
+        />
+
 
         <ListView
         style={styles.container}
         dataSource={this.state.dataSource}
         renderRow={(data) => <Row {...data} />}
-        renderSectionHeader={(sectionData) => <SectionHeader {...sectionData} />}
-        renderHeader={() => <Header />}
+
 
       />
 
@@ -116,3 +127,6 @@ export default class TrackedItems extends React.Component {
     )
   }
 }
+
+// renderHeader={() => <Header />}   search bar
+// renderSectionHeader={(sectionData) => <SectionHeader {...sectionData} />}   Letter seperator like phone book
