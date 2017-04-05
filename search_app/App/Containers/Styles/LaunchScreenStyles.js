@@ -12,5 +12,8 @@ export default StyleSheet.create({
   centered: {
     padding: 100,
     alignItems: 'center'
+  },
+  container: {
+    backgroundColor: 'black',
   }
 })
