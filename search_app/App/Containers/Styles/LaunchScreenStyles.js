@@ -14,6 +14,6 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   container: {
-    backgroundColor: 'black',
+    backgroundColor: 'yellow',
   }
 })
