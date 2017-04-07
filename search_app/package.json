@@ -25,7 +25,9 @@
   },
   "dependencies": {
     "apisauce": "^0.10.0",
+    "axios": "^0.16.0",
     "color": "~0.11.1",
+    "fetch": "^1.1.0",
     "format-json": "^1.0.3",
     "lodash": "^4.17.2",
     "native-base": "^2.1.0",
@@ -43,6 +45,7 @@
     "react-native-i18n": "^1.0.0",
     "react-native-keyboard-aware-scroll-view": "0.1.2",
     "react-native-material-design-searchbar": "^1.1.2",
+    "react-native-modal-picker": "0.0.16",
     "react-native-router-flux": "^3.37.0",
     "react-native-searchbar": "^1.8.0",
     "react-native-vector-icons": "^4.0.0",
