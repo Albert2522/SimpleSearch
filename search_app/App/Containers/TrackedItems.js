@@ -121,8 +121,6 @@ export default class TrackedItems extends React.Component {
 
 
       />
-
-
       </View>
     )
   }

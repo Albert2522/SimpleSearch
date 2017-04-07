@@ -15,5 +15,8 @@ export default StyleSheet.create({
   },
   container: {
     backgroundColor: 'snow',
+  },
+  card: {
+     borderColor: '#d6d7da'
   }
 })

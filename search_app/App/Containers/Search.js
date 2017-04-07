@@ -2,13 +2,19 @@ import React from 'react'
 import { ScrollView, Text, Image, View, Button, TouchableOpacity, TextInput } from 'react-native'
 import {Actions} from 'react-native-router-flux'
 import SearchBar from 'react-native-material-design-searchbar'
-import axios from 'axios';
-// import fetch from 'fetch';
-
+import axios from 'axios'
+import {Item} from './Item'
 // Styles
 import styles from './Styles/LaunchScreenStyles'
 import stylesbtn from '../Components/Styles/RoundedButtonStyles'
 import ModalPicker from 'react-native-modal-picker'
+import {
+  Card,
+  CardImage,
+  CardTitle,
+  CardContent,
+  CardAction
+} from 'react-native-card-view'
 
 
 export default class Search extends React.Component {
@@ -43,12 +49,24 @@ export default class Search extends React.Component {
     if (this.state.results) {
       return (
         <View>
-          <TextInput onChangeText={this.update} onSubmitEditing={this.handleSubmit}>
+          <TouchableOpacity style={stylesbtn.button} onPress={Actions.launchScreen}>
+            <Text style={styles.buttonText}>Back</Text>
+          </TouchableOpacity>
 
+          <TextInput
+            onChangeText={this.update} onSubmitEditing={this.handleSubmit}>
           </TextInput>
+          <ScrollView>
           {this.state.results.map( (listing) => (
-            <Text key={listing.url}>{listing.title}</Text>
+            <Card style={styles.card}>
+            <Text key={listing.url}onPress={Actions.item}>
+              {listing.title}
+              {listing.price}
+
+            </Text>
+            </Card>
           ))}
+        </ScrollView>
           <View style={styles.centered}>
             <Text>Here is Search Component</Text>
           </View>
@@ -58,7 +76,17 @@ export default class Search extends React.Component {
       console.log('here');
       return (
         <View>
-          <TextInput value={this.state.search} style={{paddingTop: 30, height: 30, width: 100}} placeholder='SOMETHING' onChangeText={(value) => this.setState({search: value})} onSubmitEditing={this.handleSubmit}>
+
+          <TouchableOpacity style={stylesbtn.button} onPress={Actions.launchScreen}>
+            <Text style={styles.buttonText}>Back</Text>
+          </TouchableOpacity>
+
+          <TextInput
+            value={this.state.search}
+            style={styles.textInput,{paddingLeft: 20, paddingTop: 30, height: 30, width: 100, color: 'black'}}
+            placeholder='Search'
+            onChangeText={(value) => this.setState({search: value})}
+            onSubmitEditing={this.handleSubmit}>
 
           </TextInput>
           <View style={styles.centered}>
