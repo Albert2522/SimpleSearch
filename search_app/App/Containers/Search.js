@@ -5,6 +5,7 @@ import SearchBar from 'react-native-material-design-searchbar'
 import axios from 'axios'
 import {Item} from './Item'
 // Styles
+import Searcher from 'react-native-search-box';
 import styles from './Styles/LaunchScreenStyles'
 import stylesbtn from '../Components/Styles/RoundedButtonStyles'
 import ModalPicker from 'react-native-modal-picker'
@@ -81,14 +82,15 @@ export default class Search extends React.Component {
             <Text style={styles.buttonText}>Back</Text>
           </TouchableOpacity>
 
-          <TextInput
+          <SearchBar
+            ref="search_bar"
             value={this.state.search}
-            style={styles.textInput,{paddingLeft: 20, paddingTop: 30, height: 30, width: 100, color: 'black'}}
+            style={styles.textInput,{paddingLeft: 20, paddingTop: 30, height: 40, width: 100, color: 'black'}}
             placeholder='Search'
             onChangeText={(value) => this.setState({search: value})}
             onSubmitEditing={this.handleSubmit}>
 
-          </TextInput>
+          </SearchBar>
           <View style={styles.centered}>
             <Text>Here is Search Component</Text>
           </View>
