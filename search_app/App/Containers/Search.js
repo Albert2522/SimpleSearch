@@ -21,7 +21,7 @@ export default class Search extends React.Component {
 
   handleSubmit(e) {
     console.log('hande submit');
-    let url = 'https://craigslist-simple-search.herokuapp.com/' + '?' + this.state.search; 
+    let url = 'https://craigslist-simple-search.herokuapp.com/craigslist' + '?search=' + this.state.search;
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.responseType = 'json';
@@ -37,6 +37,7 @@ export default class Search extends React.Component {
     xhr.send();
   }
 
+  // <input type=checkbox
   render () {
     console.log(this.state.results);
     if (this.state.results) {
@@ -45,7 +46,6 @@ export default class Search extends React.Component {
           <TextInput onChangeText={this.update} onSubmitEditing={this.handleSubmit}>
 
           </TextInput>
-          <input type=checkbox
           {this.state.results.map( (listing) => (
             <Text key={listing.url}>{listing.title}</Text>
           ))}
