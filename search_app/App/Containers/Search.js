@@ -2,13 +2,13 @@ import React from 'react'
 import { ScrollView, Text, Image, View, Button, TouchableOpacity, TextInput } from 'react-native'
 import {Actions} from 'react-native-router-flux'
 import SearchBar from 'react-native-material-design-searchbar'
-import axios from 'axios'
+// import axios from 'axios'
 import {Item} from './Item'
 // Styles
-import Searcher from 'react-native-search-box';
+// import Searcher from 'react-native-search-box';
 import styles from './Styles/LaunchScreenStyles'
 import stylesbtn from '../Components/Styles/RoundedButtonStyles'
-import ModalPicker from 'react-native-modal-picker'
+// import ModalPicker from 'react-native-modal-picker'
 import {
   Card,
   CardImage,
@@ -60,10 +60,9 @@ export default class Search extends React.Component {
           <ScrollView>
           {this.state.results.map( (listing) => (
             <Card style={styles.card}>
-            <Text key={listing.url}onPress={Actions.item}>
+            <Text key={listing.url}onPress={Actions.item} item={listing}>
               {listing.title}
               {listing.price}
-
             </Text>
             </Card>
           ))}
@@ -71,10 +70,10 @@ export default class Search extends React.Component {
           <View style={styles.centered}>
             <Text>Here is Search Component</Text>
           </View>
-        </View>)
-      }
+        </View>
+      )}
      else {
-      console.log('here');
+       console.log('here');
       return (
         <View>
 
@@ -82,19 +81,18 @@ export default class Search extends React.Component {
             <Text style={styles.buttonText}>Back</Text>
           </TouchableOpacity>
 
-          <SearchBar
-            ref="search_bar"
+          <TextInput
             value={this.state.search}
-            style={styles.textInput,{paddingLeft: 20, paddingTop: 30, height: 40, width: 100, color: 'black'}}
-            placeholder='Search'
+            style={{paddingTop: 30, height: 30, width: 100}}
+            placeholder='SOMETHING'
             onChangeText={(value) => this.setState({search: value})}
             onSubmitEditing={this.handleSubmit}>
 
-          </SearchBar>
+          </TextInput>
           <View style={styles.centered}>
             <Text>Here is Search Component</Text>
           </View>
-        </View>)
-    }
+        </View>
+    )}
   }
 }
