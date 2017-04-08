@@ -64,12 +64,26 @@ export default class Search extends React.Component {
            </InputContainer>
 
            {this.state.results.map( (listing) => (
-             <Card style={styles.card}>
-             <Text key={listing.url}onPress={Actions.item} item={listing}>
-               {listing.title}
-               {listing.price}
-             </Text>
+             <Card>
+               <CardSection>
+                 <DisplayContainer>
+                   <View style={styles.thumbnailContainerStyle}>
+                     <Text key={listing.url}onPress={Actions.item} item={listing} style={{fontSize: 18}}>{listing.title}</Text>
+                     <Image
+                       style={styles.thumbnailStyle}
+                       source={listing.image_url}
+                     />
+                   </View>
+                   <DisplayTextContainer>
+
+                     <Text key={listing.url}onPress={Actions.item} item={listing} style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>{listing.price}</Text>
+                   </DisplayTextContainer>
+                 </DisplayContainer>
+               </CardSection>
              </Card>
+
+
+
            ))}
          </ScrollView>
 
