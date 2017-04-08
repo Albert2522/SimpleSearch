@@ -87,12 +87,6 @@ export default class Search extends React.Component {
            ))}
          </ScrollView>
 
-
-
-
-           <View style={styles.centered}>
-             <Text>Here is Search Component</Text>
-           </View>
          </View>
 
 
@@ -113,10 +107,6 @@ export default class Search extends React.Component {
             />
           </InputContainer>
 
-
-          <View style={styles.centered}>
-            <Text>Here is Search Component</Text>
-          </View>
         </View>
     )}
   }
