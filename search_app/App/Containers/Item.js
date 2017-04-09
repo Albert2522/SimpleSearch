@@ -11,19 +11,19 @@ export default class Item extends Component {
 constructor(props){
   super(props);
 }
-// alert(this.props);
+//alert({this.props});
 
 render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#f1f1f1' }}>
+      <View style={{ flex: 1, backgroundColor: '#F1F1F1' }}>
         <Header headerText={'Simple Search'} />
 
         <ScrollView style={{ flex: 1 }}>
         <Card>
           <CardSection>
             <SearchResultHeader>
-              <Text style={{fontSize: 18, color: '#031eff'}}>searchType</Text>
-              <Text style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>{this.props.price}</Text>
+              <Text style={{fontSize: 18, fontWeight: 'bold', color: '#FF4500'}}>{(this.props.url.match(/\w+?\.(.*?)(\.com|\.org)/)[1]).toUpperCase()}</Text>
+              <Text style={{fontSize: 20, color: '#03AF1F', fontWeight: 'bold'}}>{this.props.price}</Text>
             </SearchResultHeader>
           </CardSection>
           <CardSection>
@@ -37,10 +37,10 @@ render() {
               </View>
             </DisplayContainer>
           </CardSection>
-          <CardSection style={{backgroundColor: '#f5f5f5'}}>
+          <CardSection style={{backgroundColor: '#F5F5F5'}}>
             <Text>description</Text>
           </CardSection>
-          <CardSection style={{backgroundColor: '#f5f5f5'}}>
+          <CardSection style={{backgroundColor: '#F5F5F5'}}>
             <Text>Location: {this.props.location}</Text>
             <Text>Date Posted: {this.props.date}</Text>
           </CardSection>
@@ -151,7 +151,7 @@ const styles = {
   containerStyle: {
     borderWidth: 1,
     borderRadius: 5,
-    borderColor: '#ddd',
+    borderColor: '#DDD',
     borderBottomWidth: 0,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -164,7 +164,7 @@ const styles = {
     marginBottom: 5,
   },
   displayContainerStyle: {
-    backgroundColor: '#fbfbfb',
+    backgroundColor: '#FBFBFB',
     flexDirection: 'row',
     paddingBottom: 10,
   },

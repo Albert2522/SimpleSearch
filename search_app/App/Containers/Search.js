@@ -8,6 +8,7 @@ import {Item} from './Item'
 // import Searcher from 'react-native-search-box';
 // import styles from './Styles/LaunchScreenStyles'
 import stylesbtn from '../Components/Styles/RoundedButtonStyles'
+import ModalDropdown from 'react-native-modal-dropdown';
 // import ModalPicker from 'react-native-modal-picker'
 import item from './Item'
 
@@ -20,7 +21,7 @@ export default class Search extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log('hande submit');
+    console.log('handle submit');
     let url = 'https://craigslist-simple-search.herokuapp.com/craigslist' + '?search=' + this.state.search;
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url);
@@ -111,6 +112,7 @@ export default class Search extends React.Component {
               onSubmitEditing={this.handleSubmit}
             />
           </InputContainer>
+          <ModalDropdown options={['option 1', 'option 2']}/>
         </View>
     )}
   }
