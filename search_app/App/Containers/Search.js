@@ -63,11 +63,15 @@ export default class Search extends React.Component {
            {this.state.results.map( (listing) => (
 
                <CardSection style={{backgroundColor: '#f5f5f5'}}>
+                 <TouchableOpacity
+                    style={{flex: 1}}
+                    key={listing.url}
+                    onPress={() => Actions.item(
+                      {title: listing.title, price: listing.price, location: listing.location, url: listing.url, image: listing.image_url, date: listing.date }
+                    )}>
                  <DisplayContainer>
                    <View style={styles.thumbnailContainerStyle} >
-                     <Text key={listing.url}
-                           onPress={() => Actions.item({title: listing.title, price: listing.price, location: listing.location, url: listing.url, image: listing.image_url, date: listing.date })}>{listing.title}
-                     </Text>
+                     <Text>{listing.title}</Text>
                     <Image style={styles.thumbnailStyle} source={{uri: listing.image_url}} />
                    </View>
 
@@ -84,6 +88,7 @@ export default class Search extends React.Component {
                     </Text>
                    </DisplayTextContainer>
                  </DisplayContainer>
+                </TouchableOpacity>
                </CardSection>
 
            ))}
@@ -106,7 +111,6 @@ export default class Search extends React.Component {
               onSubmitEditing={this.handleSubmit}
             />
           </InputContainer>
-
         </View>
     )}
   }
