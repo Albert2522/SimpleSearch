@@ -11,7 +11,6 @@ import stylesbtn from '../Components/Styles/RoundedButtonStyles'
 // import ModalPicker from 'react-native-modal-picker'
 
 
-
 export default class Search extends React.Component {
 
   constructor(props) {
@@ -43,15 +42,13 @@ export default class Search extends React.Component {
     console.log(this.state.results);
     if (this.state.results) {
       return (
-         <View style={{flex: 1}}>
-
+         <View style={{ flex: 1, backgroundColor: '#f1f1f1' }}>
+           <Header headerText={'Simple Search'} />
 
            <TextInput
              onChangeText={this.update} onSubmitEditing={this.handleSubmit}>
            </TextInput>
-           <ScrollView style={{ flex: 1, backgroundColor: '#f1f1f1' }} stickyHeaderIndices={[0]}>
-
-             <Header headerText={'Simple Search'} />
+           <ScrollView style={{ flex: 1 }} stickyHeaderIndices={[0]}>
 
            <InputContainer>
              <TextInput
@@ -64,32 +61,28 @@ export default class Search extends React.Component {
            </InputContainer>
 
            {this.state.results.map( (listing) => (
-             <Card>
-               <CardSection>
+    
+               <CardSection style={{backgroundColor: '#f5f5f5'}}>
                  <DisplayContainer>
                    <View style={styles.thumbnailContainerStyle}>
-                     <Text key={listing.url}onPress={Actions.item} item={listing} style={{fontSize: 18}}>{listing.title}</Text>
+                     <Text key={listing.url}onPress={Actions.item} item={listing}>{listing.title}</Text>
                      <Image
                        style={styles.thumbnailStyle}
-                       source={listing.image_url}
+                       source={{uri: listing.image_url}}
                      />
                    </View>
-                   <DisplayTextContainer>
 
+                   <DisplayTextContainer>
                      <Text key={listing.url}onPress={Actions.item} item={listing} style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>{listing.price}</Text>
                    </DisplayTextContainer>
                  </DisplayContainer>
                </CardSection>
-             </Card>
-
 
 
            ))}
          </ScrollView>
 
          </View>
-
-
       )}
      else {
        console.log('here');
@@ -111,9 +104,6 @@ export default class Search extends React.Component {
     )}
   }
 }
-
-
-
 
 
 const Header = (props) => {
@@ -173,7 +163,7 @@ const InputContainer = (props) => {
 
 const styles = {
   viewStyle: {
-    backgroundColor: '#5294d6',
+    backgroundColor: '#FF4500',
     justifyContent: 'center',
     alignItems: 'center',
     height: 60,
@@ -190,6 +180,7 @@ const styles = {
     color: 'white',
   },
   containerStyle: {
+    backgroundColor: '#f5f5f5',
     borderWidth: 1,
     borderRadius: 5,
     borderColor: '#ddd',
@@ -205,6 +196,7 @@ const styles = {
     marginBottom: 5,
   },
   displayContainerStyle: {
+    backgroundColor: "#fbfbfb",
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
@@ -213,7 +205,6 @@ const styles = {
   },
   displayTextContainerStyle: {
     marginRight: 5,
-    fontSize: 20,
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
@@ -265,8 +256,6 @@ const styles = {
     paddingRight: 10,
     paddingTop: 5,
     paddingBottom: 5,
-    fontWeight: 'bold',
-    color: 'white',
     borderColor: "#555",
     borderWidth: 1,
     borderRadius: 5,

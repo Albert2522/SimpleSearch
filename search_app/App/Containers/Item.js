@@ -21,9 +21,6 @@ render() {
                 <Text style={{fontSize: 18}}>title</Text>
                 <Image
                   style={styles.thumbnailStyle}
-                  source={{
-                    uri: 'https://greentreesarborcareinc.com/wp-content/uploads/2014/01/image-placeholder.jpg'
-                  }}
                 />
               </View>
               <DisplayTextContainer>
@@ -32,10 +29,10 @@ render() {
               </DisplayTextContainer>
             </DisplayContainer>
           </CardSection>
-          <CardSection>
+          <CardSection style={{backgroundColor: '#f5f5f5'}}>
             <Text>description</Text>
           </CardSection>
-          <CardSection>
+          <CardSection style={{backgroundColor: '#f5f5f5'}}>
             <Text>Location: location</Text>
             <Text>Date Posted: date</Text>
           </CardSection>
@@ -54,7 +51,7 @@ render() {
           </TouchableOpacity>
         </ButtonContainer>
 
-        
+
       </View>
     );
   }
@@ -124,7 +121,7 @@ const ButtonContainer = (props) => {
 
 const styles = {
   viewStyle: {
-    backgroundColor: '#5294d6',
+    backgroundColor: '#FF4500',
     justifyContent: 'center',
     alignItems: 'center',
     height: 60,
@@ -157,12 +154,12 @@ const styles = {
     marginBottom: 5,
   },
   displayContainerStyle: {
+    backgroundColor: '#fbfbfb',
     flexDirection: 'row',
     paddingBottom: 10,
   },
   displayTextContainerStyle: {
     marginRight: 5,
-    fontSize: 20,
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
@@ -185,7 +182,7 @@ const styles = {
   buttonContainerStyle: {
     marginLeft: 5,
     marginRight: 5,
-    backgroundColor: '#5294d6',
+    backgroundColor: '#FF4500',
     height: 40,
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -214,6 +211,7 @@ const styles = {
     fontWeight: 'bold',
   },
   backButtonStyle: {
+    backgroundColor: '#FF3400',
     position: 'absolute',
     top: 25,
     left: 5,
@@ -221,8 +219,6 @@ const styles = {
     paddingRight: 10,
     paddingTop: 5,
     paddingBottom: 5,
-    fontWeight: 'bold',
-    color: 'white',
     borderColor: "#555",
     borderWidth: 1,
     borderRadius: 5,
