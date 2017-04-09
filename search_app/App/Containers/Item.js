@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, Image, View, Button, Alert, TouchableOpacity, TextInput, Linking } from 'react-native'
+import { Text, Image, View, Button, Alert, TouchableOpacity, TextInput, Linking, ScrollView } from 'react-native'
 import {Actions} from 'react-native-router-flux'
 // import stylesbtn from '../Components/Styles/RoundedButtonStyles'
 // import { Fonts, Colors, Metrics } from '../Themes/'
@@ -18,8 +18,14 @@ render() {
       <View style={{ flex: 1, backgroundColor: '#f1f1f1' }}>
         <Header headerText={'Simple Search'} />
 
-
+        <ScrollView style={{ flex: 1 }}>
         <Card>
+          <CardSection>
+            <SearchResultHeader>
+              <Text style={{fontSize: 18, color: '#031eff'}}>searchType</Text>
+              <Text style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>{this.props.price}</Text>
+            </SearchResultHeader>
+          </CardSection>
           <CardSection>
             <DisplayContainer>
               <View style={styles.thumbnailContainerStyle}>
@@ -29,10 +35,6 @@ render() {
                   source={{uri: this.props.image}}
                 />
               </View>
-              <DisplayTextContainer>
-                <Text style={{fontSize: 18, color: '#031eff'}}>searchType</Text>
-                <Text style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>{this.props.price}</Text>
-              </DisplayTextContainer>
             </DisplayContainer>
           </CardSection>
           <CardSection style={{backgroundColor: '#f5f5f5'}}>
@@ -44,20 +46,21 @@ render() {
           </CardSection>
         </Card>
 
-        <ButtonContainer>
-          <TouchableOpacity onPress={() => {Linking.openURL(this.props.url)}}>
-            <Text style={styles.buttonText}>
-              Buy Now
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={this._onPressButton}>
-            <Text style={styles.buttonText}>
-              Save
-            </Text>
-          </TouchableOpacity>
-        </ButtonContainer>
-
-
+        </ScrollView>
+        <View>
+          <ButtonContainer>
+            <TouchableOpacity onPress={() => {Linking.openURL(this.props.url)}}>
+              <Text style={styles.buttonText}>
+                Buy Now
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this._onPressButton}>
+              <Text style={styles.buttonText}>
+                Save
+              </Text>
+            </TouchableOpacity>
+          </ButtonContainer>
+        </View>
       </View>
     );
   }
@@ -101,9 +104,9 @@ const DisplayContainer = (props) => {
   );
 };
 
-const DisplayTextContainer = (props) => {
+const SearchResultHeader = (props) => {
   return (
-    <View style={styles.displayTextContainerStyle}>
+    <View style={styles.searchResultHeaderStyle}>
       {props.children}
     </View>
   );
@@ -124,6 +127,7 @@ const ButtonContainer = (props) => {
     </View>
   );
 };
+
 
 const styles = {
   viewStyle: {
@@ -164,10 +168,10 @@ const styles = {
     flexDirection: 'row',
     paddingBottom: 10,
   },
-  displayTextContainerStyle: {
-    marginRight: 5,
+  searchResultHeaderStyle: {
+    backgroundColor: 'white',
     flexDirection: 'column',
-    justifyContent: 'space-around'
+    alignItems: 'center',
   },
   inputContainerStyle: {
     backgroundColor: 'white',
@@ -186,12 +190,14 @@ const styles = {
     marginTop: 10,
   },
   buttonContainerStyle: {
+    marginBottom: 5,
     marginLeft: 5,
     marginRight: 5,
     backgroundColor: '#FF4500',
-    height: 40,
+    height: 60,
     flexDirection: 'row',
     justifyContent: 'space-around',
+    alignItems: 'center',
     borderRadius: 5,
   },
   headerContentStyle: {
@@ -200,15 +206,13 @@ const styles = {
   },
   thumbnailStyle: {
     marginTop: 5,
-    width: 80,
-    height: 80,
+    width: 335,
+    height: 188,
   },
   thumbnailContainerStyle: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 10,
-    marginRight: 10
   },
   buttonText: {
     paddingLeft: '8%',

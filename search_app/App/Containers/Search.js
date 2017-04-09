@@ -246,14 +246,13 @@ const styles = {
   },
   thumbnailStyle: {
     marginTop: 5,
-    width: 80,
-    height: 80,
+    width: 200,
+    height: 113,
   },
   thumbnailContainerStyle: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: '15%',
+    marginLeft: '5%',
     marginRight: 10
   },
   backButtonStyle: {
