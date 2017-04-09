@@ -3,6 +3,7 @@ import { Fonts, Colors } from '../../Themes/'
 
 export default StyleSheet.create({
   button: {
+    width: '100%',
     marginVertical: 0,
     borderTopColor: Colors.fire,
     borderBottomColor: Colors.bloodOrange,
@@ -12,10 +13,10 @@ export default StyleSheet.create({
   },
   buttonText: {
     margin: 70,
-
+    fontSize: 26,
     textAlign: 'center',
     color: '#FF4500',
-    fontSize: Fonts.size.medium,
+
     fontFamily: Fonts.type.bold
   }
 })

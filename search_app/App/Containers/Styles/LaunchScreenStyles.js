@@ -10,7 +10,7 @@ export default StyleSheet.create({
     resizeMode: 'contain'
   },
   centered: {
-    padding: 100,
+    padding: 0,
     alignItems: 'center'
   },
   container: {

@@ -27,7 +27,7 @@ export default class LaunchScreen extends React.Component {
 
           <View style={styles.section} >
               <TouchableOpacity style={stylesbtn.button} onPress={Actions.trackedItems}>
-                <Text style={stylesbtn.buttonText}>Tracked Items Component</Text>
+                <Text style={stylesbtn.buttonText}>Watched List</Text>
               </TouchableOpacity>
           </View>
 
