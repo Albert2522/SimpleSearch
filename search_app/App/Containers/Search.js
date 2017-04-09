@@ -9,7 +9,7 @@ import {Item} from './Item'
 // import styles from './Styles/LaunchScreenStyles'
 import stylesbtn from '../Components/Styles/RoundedButtonStyles'
 // import ModalPicker from 'react-native-modal-picker'
-
+import item from './Item'
 
 export default class Search extends React.Component {
 
@@ -61,23 +61,30 @@ export default class Search extends React.Component {
            </InputContainer>
 
            {this.state.results.map( (listing) => (
-    
+
                <CardSection style={{backgroundColor: '#f5f5f5'}}>
                  <DisplayContainer>
-                   <View style={styles.thumbnailContainerStyle}>
-                     <Text key={listing.url}onPress={Actions.item} item={listing}>{listing.title}</Text>
-                     <Image
-                       style={styles.thumbnailStyle}
-                       source={{uri: listing.image_url}}
-                     />
+                   <View style={styles.thumbnailContainerStyle} >
+                     <Text key={listing.url}
+                           onPress={() => Actions.item({title: listing.title, price: listing.price, location: listing.location, url: listing.url, image: listing.image_url, date: listing.date })}>{listing.title}
+                     </Text>
+                    <Image style={styles.thumbnailStyle} source={{uri: listing.image_url}} />
                    </View>
 
                    <DisplayTextContainer>
-                     <Text key={listing.url}onPress={Actions.item} item={listing} style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>{listing.price}</Text>
+                    <Text
+                      key={listing.url}
+                      onPress={() => Actions.item({title: listing.title, price: listing.price, location: listing.location, url: listing.url, image: listing.image_url, date: listing.date })}
+                      item={listing}
+                      style={{fontSize: 20,
+                        color: '#03af1f',
+                        fontWeight: 'bold'}}
+                    >
+                      {listing.price}
+                    </Text>
                    </DisplayTextContainer>
                  </DisplayContainer>
                </CardSection>
-
 
            ))}
          </ScrollView>
@@ -238,17 +245,19 @@ const styles = {
     justifyContent: 'space-around',
   },
   thumbnailStyle: {
-    width: 50,
-    height: 50,
+    marginTop: 5,
+    width: 80,
+    height: 80,
   },
   thumbnailContainerStyle: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 10,
+    marginLeft: '15%',
     marginRight: 10
   },
   backButtonStyle: {
+    backgroundColor: '#FF3500',
     position: 'absolute',
     top: 25,
     left: 5,

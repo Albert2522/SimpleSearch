@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
-import { Text, Image, View, Button, Alert, TouchableOpacity, TextInput } from 'react-native'
+import { Text, Image, View, Button, Alert, TouchableOpacity, TextInput, Linking } from 'react-native'
 import {Actions} from 'react-native-router-flux'
 // import stylesbtn from '../Components/Styles/RoundedButtonStyles'
 // import { Fonts, Colors, Metrics } from '../Themes/'
-export default class App extends Component {
+export default class Item extends Component {
   _onPressButton = () => {
     Alert.alert('This will link later!');
   };
+
+constructor(props){
+  super(props);
+}
+// alert(this.props);
 
 render() {
     return (
@@ -18,14 +23,15 @@ render() {
           <CardSection>
             <DisplayContainer>
               <View style={styles.thumbnailContainerStyle}>
-                <Text style={{fontSize: 18}}>title</Text>
+                <Text style={{fontSize: 18}}>{this.props.title}</Text>
                 <Image
                   style={styles.thumbnailStyle}
+                  source={{uri: this.props.image}}
                 />
               </View>
               <DisplayTextContainer>
                 <Text style={{fontSize: 18, color: '#031eff'}}>searchType</Text>
-                <Text style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>price</Text>
+                <Text style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>{this.props.price}</Text>
               </DisplayTextContainer>
             </DisplayContainer>
           </CardSection>
@@ -33,13 +39,13 @@ render() {
             <Text>description</Text>
           </CardSection>
           <CardSection style={{backgroundColor: '#f5f5f5'}}>
-            <Text>Location: location</Text>
-            <Text>Date Posted: date</Text>
+            <Text>Location: {this.props.location}</Text>
+            <Text>Date Posted: {this.props.date}</Text>
           </CardSection>
         </Card>
 
         <ButtonContainer>
-          <TouchableOpacity onPress={this._onPressButton}>
+          <TouchableOpacity onPress={() => {Linking.openURL(this.props.url)}}>
             <Text style={styles.buttonText}>
               Buy Now
             </Text>
@@ -62,7 +68,7 @@ const Header = (props) => {
 
   return (
     <View style={viewStyle}>
-      <TouchableOpacity style={styles.backButtonStyle} onPress={Actions.search}>
+      <TouchableOpacity style={styles.backButtonStyle} onPress={() => Actions.pop()}>
         {/* onPress={Actions.launchScreen} */}
         <Text style={{color: 'white'}}>Back</Text>
       </TouchableOpacity>
@@ -193,8 +199,9 @@ const styles = {
     justifyContent: 'space-around',
   },
   thumbnailStyle: {
-    width: 150,
-    height: 150,
+    marginTop: 5,
+    width: 80,
+    height: 80,
   },
   thumbnailContainerStyle: {
     flex: 1,

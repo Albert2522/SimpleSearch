@@ -45,6 +45,7 @@
     "react-native-easy-grid": "0.1.5",
     "react-native-i18n": "^1.0.0",
     "react-native-keyboard-aware-scroll-view": "0.1.2",
+    "react-native-loading-spinner-overlay": "^0.4.4",
     "react-native-material-design-searchbar": "^1.1.2",
     "react-native-modal-picker": "0.0.16",
     "react-native-router-flux": "^3.37.0",
