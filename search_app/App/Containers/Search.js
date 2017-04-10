@@ -38,6 +38,7 @@ export default class Search extends React.Component {
     xhr.send();
   }
 
+
   // <input type=checkbox
   render () {
     console.log(this.state.results);
