@@ -60,6 +60,8 @@ export default class Search extends React.Component {
                onSubmitEditing={this.handleSubmit}
              />
            </InputContainer>
+           <ModalDropdown options={['Amazon', 'Ebay', 'Craigslist', 'Lowest Price', 'Highest Prices']}/>
+
 
            {this.state.results.map( (listing) => (
 
@@ -112,7 +114,8 @@ export default class Search extends React.Component {
               onSubmitEditing={this.handleSubmit}
             />
           </InputContainer>
-          <ModalDropdown options={['option 1', 'option 2']}/>
+          <ModalDropdown options={['Amazon', 'Ebay', 'Craigslist', 'Lowest Price', 'Highest Prices']}/>
+
         </View>
     )}
   }

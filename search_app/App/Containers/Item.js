@@ -37,9 +37,7 @@ render() {
               </View>
             </DisplayContainer>
           </CardSection>
-          <CardSection style={{backgroundColor: '#F5F5F5'}}>
-            <Text>description</Text>
-          </CardSection>
+
           <CardSection style={{backgroundColor: '#F5F5F5'}}>
             <Text>Location: {this.props.location}</Text>
             <Text>Date Posted: {this.props.date}</Text>
@@ -51,7 +49,7 @@ render() {
           <ButtonContainer>
             <TouchableOpacity onPress={() => {Linking.openURL(this.props.url)}}>
               <Text style={styles.buttonText}>
-                Buy Now
+                Site Link
               </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={this._onPressButton}>
@@ -235,3 +233,8 @@ const styles = {
     borderRadius: 5,
   },
 };
+
+// <ModalDropdown
+//   options={['Amazon', 'Ebay', 'Craigslist', 'Lowest Price', 'Highest Price']}
+//   onSelect={(idx, value) => this.sorting(idx, value)}
+//   />
