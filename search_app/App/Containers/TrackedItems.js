@@ -68,41 +68,41 @@ export default class Search extends React.Component {
          <View style={{ flex: 1, backgroundColor: '#f1f1f1' }}>
            <Header headerText={'Simple Search'} />
 
-           <TextInput
-             onChangeText={this.update} onSubmitEditing={this.handleSubmit}>
-           </TextInput>
+
            <ScrollView style={{ flex: 1 }} stickyHeaderIndices={[0]}>
 
-           <InputContainer>
-             <TextInput
-               value={this.state.search}
-               style={{height: 31, textAlign: 'center'}}
-               placeholder='Search'
-               onChangeText={(value) => this.setState({search: value})}
-               onSubmitEditing={this.handleSubmit}
-             />
-           </InputContainer>
+
 
            {this.state.results.map( (listing) => (
-             <Card key={listing.url}>
-               <CardSection style={{backgroundColor: '#f5f5f5'}}>
-                 <DisplayContainer>
-                   <View style={styles.thumbnailContainerStyle}>
-                     <Text key={listing.url}onPress={Actions.item} item={listing}>{listing.title}</Text>
-                     <Image
-                       style={styles.thumbnailStyle}
-                       source={{uri: listing.image_url}}
-                     />
-                   </View>
+             <CardSection key={listing.url} style={{backgroundColor: '#f5f5f5'}}>
+               <TouchableOpacity
+                  style={{flex: 1}}
+                  key={listing.url}
+                  onPress={() => Actions.item({listing}
+                  )}>
+               <DisplayContainer>
+                 <View style={styles.thumbnailContainerStyle} >
+                   <Text>{listing.title}</Text>
+                  <Image style={styles.thumbnailStyle} source={{uri: listing.image_url}} />
+                 </View>
 
-                   <DisplayTextContainer>
-                     <Text key={listing.url}onPress={Actions.item} item={listing} style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>{listing.price}</Text>
-                   </DisplayTextContainer>
-                 </DisplayContainer>
-               </CardSection>
-             </Card>
+                 <DisplayTextContainer>
+                  <Text
+                    key={listing.url}
+                    onPress={() => Actions.item({listing})}
+                    item={listing}
+                    style={{fontSize: 20,
+                      color: '#03af1f',
+                      fontWeight: 'bold'}}
+                  >
+                    {listing.price}
+                  </Text>
+                 </DisplayTextContainer>
+               </DisplayContainer>
+              </TouchableOpacity>
+             </CardSection>
 
-           ))}
+         ))}
          </ScrollView>
 
          </View>

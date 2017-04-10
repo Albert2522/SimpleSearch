@@ -2,28 +2,24 @@ import React, { Component } from 'react'
 import { ScrollView, Text, Image, View, Button, TouchableOpacity, TextInput, Alert} from 'react-native'
 import {Actions} from 'react-native-router-flux'
 import SearchBar from 'react-native-material-design-searchbar'
-// import axios from 'axios'
 import {Item} from './Item'
-// Styles
-// import Searcher from 'react-native-search-box';
-// import styles from './Styles/LaunchScreenStyles'
 import stylesbtn from '../Components/Styles/RoundedButtonStyles'
-import ModalDropdown from 'react-native-modal-dropdown';
-// import ModalPicker from 'react-native-modal-picker'
+import ModalDropdown from 'react-native-modal-dropdown'
 import item from './Item'
+import Spinner from 'react-native-loading-spinner-overlay'
 
 export default class Search extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {search: '', results: [], searchType: undefined};
+    this.state = {search: '', results: [], searchType: undefined, visible: false};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.makeRequest = this.makeRequest.bind(this);
   }
 
   makeRequest(source) {
     let url = 'https://craigslist-simple-search.herokuapp.com/' + source + '?search=' + this.state.search;
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.responseType = 'json';
     let that = this;
@@ -38,6 +34,18 @@ export default class Search extends React.Component {
   }
 
   handleSubmit(e) {
+
+    this.setState({
+      visible: !this.state.visible
+    });
+
+    let that = this;
+    setTimeout(function () {
+      that.setState({
+        visible: !that.state.visible
+      });
+    }, 7000);
+
     if (this.state.searchType === undefined) {
       this.makeRequest('craigslist');
       this.makeRequest('ebay');
@@ -56,7 +64,6 @@ export default class Search extends React.Component {
       return (
          <View style={{ flex: 1, backgroundColor: '#f1f1f1' }}>
            <Header headerText={'Simple Search'} />
-
            <TextInput
              onChangeText={this.update} onSubmitEditing={this.handleSubmit}>
            </TextInput>
@@ -73,9 +80,10 @@ export default class Search extends React.Component {
            </InputContainer>
            <ModalDropdown options={['Amazon', 'Ebay', 'Craigslist', 'Lowest Price', 'Highest Prices']}/>
 
+             <Spinner visible={this.state.visible} textContent={"Loading..."} textStyle={{color: '#FFF'}} />
+
 
            {this.state.results.map( (listing) => (
-
                <CardSection key={listing.url} style={{backgroundColor: '#f5f5f5'}}>
                  <TouchableOpacity
                     style={{flex: 1}}
