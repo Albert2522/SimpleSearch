@@ -44,7 +44,7 @@ export default class Search extends React.Component {
       that.setState({
         visible: !that.state.visible
       });
-    }, 7000);
+    }, 8000);
 
     if (this.state.searchType === undefined) {
       this.makeRequest('craigslist');
@@ -59,7 +59,6 @@ export default class Search extends React.Component {
 
   // <input type=checkbox
   render () {
-    console.log(this.state.results);
     if (this.state.results) {
       return (
          <View style={{ flex: 1, backgroundColor: '#f1f1f1' }}>
@@ -118,7 +117,7 @@ export default class Search extends React.Component {
          </View>
       )}
      else {
-       console.log('here');
+
       return (
         <View>
           <Header headerText={'Simple Search'} />

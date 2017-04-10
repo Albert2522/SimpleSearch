@@ -21,13 +21,13 @@ export default class LaunchScreen extends React.Component {
         <ScrollView style={styles.container}>
           <View style={styles.section}>
             <TouchableOpacity style={stylesbtn.button} onPress={Actions.search}>
-              <Text style={stylesbtn.buttonText}>Search for Something</Text>
+              <Text style={stylesbtn.buttonText}>Search</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.section} >
               <TouchableOpacity style={stylesbtn.button} onPress={Actions.trackedItems}>
-                <Text style={stylesbtn.buttonText}>Watched List</Text>
+                <Text style={stylesbtn.buttonText}>My List</Text>
               </TouchableOpacity>
           </View>
 
