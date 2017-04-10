@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, Text, Image, View, Button, TouchableOpacity, TextInput, Alert } from 'react-native'
+import { ScrollView, Text, Image, View, Button, TouchableOpacity, TextInput, Alert} from 'react-native'
 import {Actions} from 'react-native-router-flux'
 import SearchBar from 'react-native-material-design-searchbar'
 // import axios from 'axios'
@@ -16,26 +16,37 @@ export default class Search extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {search: '', results: undefined, searchType: undefined};
+    this.state = {search: '', results: [], searchType: undefined};
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.makeRequest = this.makeRequest.bind(this);
   }
 
-  handleSubmit(e) {
-    console.log('handle submit');
-    let url = 'https://craigslist-simple-search.herokuapp.com/craigslist' + '?search=' + this.state.search;
+  makeRequest(source) {
+    let url = 'https://craigslist-simple-search.herokuapp.com/' + source + '?search=' + this.state.search;
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.responseType = 'json';
     let that = this;
     xhr.onload = function() {
-      that.setState({results: xhr.response});
+      let tmp_results = that.state.results.concat(xhr.response)
+      that.setState({results: tmp_results});
     };
-
     xhr.onerror = function() {
-      console.log("Booo");
+      console.log(`Error with ${source}`);
     };
-
     xhr.send();
+  }
+
+  handleSubmit(e) {
+    if (this.state.searchType === undefined) {
+      this.makeRequest('craigslist');
+      this.makeRequest('ebay');
+      this.makeRequest('amazon');
+    }
+    else {
+      let that= this;
+      this.state.searchType.forEach( (source) => that.makeRequest(source));
+    }
   }
 
   // <input type=checkbox
@@ -65,12 +76,11 @@ export default class Search extends React.Component {
 
            {this.state.results.map( (listing) => (
 
-               <CardSection style={{backgroundColor: '#f5f5f5'}}>
+               <CardSection key={listing.url} style={{backgroundColor: '#f5f5f5'}}>
                  <TouchableOpacity
                     style={{flex: 1}}
                     key={listing.url}
-                    onPress={() => Actions.item(
-                      {title: listing.title, price: listing.price, location: listing.location, url: listing.url, image: listing.image_url, date: listing.date }
+                    onPress={() => Actions.item({listing}
                     )}>
                  <DisplayContainer>
                    <View style={styles.thumbnailContainerStyle} >
@@ -81,7 +91,7 @@ export default class Search extends React.Component {
                    <DisplayTextContainer>
                     <Text
                       key={listing.url}
-                      onPress={() => Actions.item({title: listing.title, price: listing.price, location: listing.location, url: listing.url, image: listing.image_url, date: listing.date })}
+                      onPress={() => Actions.item({listing})}
                       item={listing}
                       style={{fontSize: 20,
                         color: '#03af1f',

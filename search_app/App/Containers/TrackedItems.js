@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, Text, Image, View, Button, TouchableOpacity, TextInput, Alert } from 'react-native'
+import { ScrollView, Text, Image, View, Button, TouchableOpacity, TextInput, Alert, AsyncStorage } from 'react-native'
 import {Actions} from 'react-native-router-flux'
 import SearchBar from 'react-native-material-design-searchbar'
 // import axios from 'axios'
@@ -15,26 +15,49 @@ export default class Search extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {search: '', results: undefined, searchType: undefined};
+    this.state = {search: '', results: [], searchType: undefined};
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    console.log('HERe');
+    AsyncStorage.getAllKeys((error, keys) => {
+      console.log(`errors are ${error}`);
+      console.log(keys);
+      if (error === null) {
+        for (let i = 0; i < keys.length; i++) {
+          if (keys[i] !== "reduxPersist:github" && keys[i] !== "reducerVersion") {
+            AsyncStorage.getItem(keys[i], (error1, results1) => {
+              if (error1 === null) {
+                console.log(this.state.results);
+                let tmp_item = this.state.results.concat([JSON.parse(results1)]);
+                this.setState({results: tmp_item});
+              } else {
+                console.log('Can\'t get Item');
+              }
+            });
+          }
+        }
+      }
+    });
+  }
+
   handleSubmit(e) {
-    console.log('hande submit');
-    let url = 'https://craigslist-simple-search.herokuapp.com/craigslist' + '?search=' + this.state.search;
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url);
-    xhr.responseType = 'json';
-    let that = this;
-    xhr.onload = function() {
-      that.setState({results: xhr.response});
-    };
-
-    xhr.onerror = function() {
-      console.log("Booo");
-    };
-
-    xhr.send();
+    // console.log('hande submit');
+    // let url = 'https://craigslist-simple-search.herokuapp.com/craigslist' + '?search=' + this.state.search;
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('GET', url);
+    // xhr.responseType = 'json';
+    // let that = this;
+    // xhr.onload = function() {
+    //   that.setState({results: xhr.response});
+    // };
+    //
+    // xhr.onerror = function() {
+    //   console.log("Booo");
+    // };
+    //
+    // xhr.send();
   }
 
   // <input type=checkbox
@@ -61,7 +84,7 @@ export default class Search extends React.Component {
            </InputContainer>
 
            {this.state.results.map( (listing) => (
-             <Card>
+             <Card key={listing.url}>
                <CardSection style={{backgroundColor: '#f5f5f5'}}>
                  <DisplayContainer>
                    <View style={styles.thumbnailContainerStyle}>

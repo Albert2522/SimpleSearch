@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, Image, View, Button, Alert, TouchableOpacity, TextInput, Linking, ScrollView } from 'react-native'
+import { Text, Image, View, Button, Alert, TouchableOpacity, TextInput, Linking, ScrollView, AsyncStorage} from 'react-native'
 import {Actions} from 'react-native-router-flux'
 // import stylesbtn from '../Components/Styles/RoundedButtonStyles'
 // import { Fonts, Colors, Metrics } from '../Themes/'
@@ -10,8 +10,18 @@ export default class Item extends Component {
 
 constructor(props){
   super(props);
+  this.saveItem = this.saveItem.bind(this);
 }
-//alert({this.props});
+
+saveItem() {
+  console.log(this.props);
+  AsyncStorage.setItem(`${this.props.listing.url}`, JSON.stringify(this.props.listing), () => console.log('Unable to save')).
+  then(() => AsyncStorage.getItem(this.props.listing.url, () => console.log('getError'))).
+  then((result) => {
+    console.log("Saved");
+    console.log(result);
+  });
+}
 
 render() {
     return (
@@ -22,38 +32,38 @@ render() {
         <Card>
           <CardSection>
             <SearchResultHeader>
-              <Text style={{fontSize: 18, fontWeight: 'bold', color: '#FF4500'}}>{(this.props.url.match(/\w+?\.(.*?)(\.com|\.org)/)[1]).toUpperCase()}</Text>
-              <Text style={{fontSize: 20, color: '#03AF1F', fontWeight: 'bold'}}>{this.props.price}</Text>
+              <Text style={{fontSize: 18, fontWeight: 'bold', color: '#FF4500'}}>{(this.props.listing.url.match(/\w+?\.(.*?)(\.com|\.org)/)[1]).toUpperCase()}</Text>
+              <Text style={{fontSize: 20, color: '#03AF1F', fontWeight: 'bold'}}>{this.props.listing.price}</Text>
             </SearchResultHeader>
           </CardSection>
           <CardSection>
             <DisplayContainer>
               <View style={styles.thumbnailContainerStyle}>
-                <Text style={{fontSize: 18}}>{this.props.title}</Text>
+                <Text style={{fontSize: 18}}>{this.props.listing.title}</Text>
                 <Image
                   style={styles.thumbnailStyle}
-                  source={{uri: this.props.image}}
+                  source={{uri: this.props.listing.image_url}}
                 />
               </View>
             </DisplayContainer>
           </CardSection>
 
           <CardSection style={{backgroundColor: '#F5F5F5'}}>
-            <Text>Location: {this.props.location}</Text>
-            <Text>Date Posted: {this.props.date}</Text>
+            <Text>Location: {this.props.listing.location}</Text>
+            <Text>Date Posted: {this.props.listing.date}</Text>
           </CardSection>
         </Card>
 
         </ScrollView>
         <View>
           <ButtonContainer>
-            <TouchableOpacity onPress={() => {Linking.openURL(this.props.url)}}>
+            <TouchableOpacity onPress={() => {Linking.openURL(this.props.listing.url)}}>
               <Text style={styles.buttonText}>
                 Site Link
               </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={this._onPressButton}>
-              <Text style={styles.buttonText}>
+              <Text onPress = {this.saveItem} style={styles.buttonText}>
                 Save
               </Text>
             </TouchableOpacity>
