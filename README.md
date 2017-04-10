@@ -59,7 +59,7 @@ to website.
 
 ![tracking](docs/screenshots/mylist.png)
 
-User's can keep track of items to buy at a later time.
+Users can keep track of items to buy at a later time.
 
 
 ## Future Implementations
