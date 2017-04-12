@@ -1,6 +1,6 @@
 # Simple Search
 
-[demo](https://appetize.io/app/0x091dfuwcr3wd4xgr1dejt8e4?device=iphone7&scale=75&orientation=portrait&osVersion=10.3&deviceColor=black)
+[demo](https://harrisonbui.github.io/SimpleSearch_demo/)
 
 
 ## Background

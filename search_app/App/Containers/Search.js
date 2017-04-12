@@ -91,6 +91,7 @@ export default class Search extends React.Component {
                     )}>
                  <DisplayContainer>
                    <View style={styles.thumbnailContainerStyle} >
+                     <Text style={{fontSize: 18, fontWeight: 'bold', color: '#FF4500'}}>{(listing.url.match(/\w+?\.(.*?)(\.com|\.org)/)[1]).toUpperCase()}</Text>
                      <Text>{listing.title}</Text>
                     <Image style={styles.thumbnailStyle} source={{uri: listing.image_url}} />
                    </View>
@@ -104,6 +105,7 @@ export default class Search extends React.Component {
                         color: '#03af1f',
                         fontWeight: 'bold'}}
                     >
+
                       {listing.price}
                     </Text>
                    </DisplayTextContainer>
@@ -117,7 +119,7 @@ export default class Search extends React.Component {
          </View>
       )}
      else {
-
+       console.log('here');
       return (
         <View>
           <Header headerText={'Simple Search'} />

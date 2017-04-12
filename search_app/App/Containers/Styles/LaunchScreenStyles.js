@@ -14,7 +14,7 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   container: {
-    backgroundColor: 'snow',
+    backgroundColor: '#2d2d2d',
   },
   card: {
      borderColor: '#d6d7da'

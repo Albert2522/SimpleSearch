@@ -57,7 +57,7 @@ const styles1 = {
     alignItems: 'center',
     height: 60,
     paddingTop: 15,
-    marginBottom: 10,
+    
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
