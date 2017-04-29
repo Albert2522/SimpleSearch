@@ -1,6 +1,6 @@
 # Simple Search
 
-[demo](https://harrisonbui.github.io/SimpleSearch_demo/)
+[demo]
 
 
 ## Background
